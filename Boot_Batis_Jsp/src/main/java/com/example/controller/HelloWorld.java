@@ -19,13 +19,9 @@ import com.example.dao.MyTestDao1;
 	public @ResponseBody ModelAndView root_test() throws Exception {
 		ModelAndView mov = new ModelAndView();
 		
-		mov.addObject("result", svc1.firstSql());
+		mov.addObject("result", svc1.selectCodesAll());
 		mov.setViewName("index");
 		return mov;
 	}
-	
-	@RequestMapping("/demo")
-	public String demo_test() throws Exception {
-		return svc1.firstSql();
-	}
+
 }

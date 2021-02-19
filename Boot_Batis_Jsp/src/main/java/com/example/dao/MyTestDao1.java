@@ -16,8 +16,8 @@ public class MyTestDao1 {
 	 @Autowired
 	 SqlSessionTemplate sTemp;
 	 
-	 public String firstSql() throws Exception {
-		 return sTemp.selectOne("MyMap.select01");
+	 public List<Map<String, Object>> selectCodesAll() throws Exception {
+		 return sTemp.selectList("MyMap.selectCodesAll");
 	 }
 	 
 	 /*
