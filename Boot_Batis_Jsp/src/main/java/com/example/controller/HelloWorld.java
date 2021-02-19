@@ -16,11 +16,29 @@ import com.example.dao.MyTestDao1;
 	MyTestDao1 svc1;
 
 	@RequestMapping("/")
-	public @ResponseBody ModelAndView root_test() throws Exception {
+	public @ResponseBody ModelAndView index() throws Exception {
 		ModelAndView mov = new ModelAndView();
 		
 		mov.addObject("result", svc1.selectCodesAll());
 		mov.setViewName("index");
+		return mov;
+	}
+	
+	@RequestMapping("/datatable")
+	public @ResponseBody ModelAndView datatable() throws Exception {
+		ModelAndView mov = new ModelAndView();
+		
+		mov.addObject("result", svc1.selectCodesAll());
+		mov.setViewName("datatableList");
+		return mov;
+	}
+	
+	@RequestMapping("/toast")
+	public @ResponseBody ModelAndView toast() throws Exception {
+		ModelAndView mov = new ModelAndView();
+		
+		mov.addObject("result", svc1.selectCodesAll());
+		mov.setViewName("toastList");
 		return mov;
 	}
 
