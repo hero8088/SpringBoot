@@ -18,3 +18,14 @@ https://www.thymeleaf.org/
             └─ static    (정적 컨텐츠 : html, css, js, image 등)
 
 4. 동적페이지를 구성 할 땐 html에 thymeleaf를 쓰는것이 보편적이다.
+
+
+# 인증
+1. 서버기반의 인증 (Session) 과 토큰기반의 인증
+      https://mangkyu.tistory.com/55
+2. Json Web Token
+      https://mangkyu.tistory.com/56
+3. SpringBoot SpringSecurity기반의 JWT 구현
+      https://mangkyu.tistory.com/57
+
+
