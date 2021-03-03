@@ -28,4 +28,7 @@ https://www.thymeleaf.org/
 3. SpringBoot SpringSecurity기반의 JWT 구현
       https://mangkyu.tistory.com/57
 
+# 배포
+
+war - https://4urdev.tistory.com/84
 
