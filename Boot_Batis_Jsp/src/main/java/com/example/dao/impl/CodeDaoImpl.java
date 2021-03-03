@@ -1,18 +1,16 @@
-package com.example.dao;
+package com.example.dao.impl;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
-import com.example.common.SqlTemplet;
+import com.example.dao.CodeDao;
 
 @Repository
-public class MyTestDao1 {
+public class CodeDaoImpl implements CodeDao {
 	 @Autowired
 	 SqlSessionTemplate sTemp;
 	 

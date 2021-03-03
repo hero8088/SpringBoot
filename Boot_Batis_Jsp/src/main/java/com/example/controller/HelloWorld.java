@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.dao.MyTestDao1;
+import com.example.service.CodeService;
 
 @RestController
 	public class HelloWorld {
 	@Autowired
-	MyTestDao1 svc1;
+	CodeService svc1;
 
 	@RequestMapping("/")
 	public @ResponseBody ModelAndView index() throws Exception {
 		ModelAndView mov = new ModelAndView();
 		
-		mov.addObject("result", svc1.selectCodesAll());
+		mov.addObject("result", svc1.selectAllCodes());
 		mov.setViewName("index");
 		return mov;
 	}
@@ -28,7 +28,7 @@ import com.example.dao.MyTestDao1;
 	public @ResponseBody ModelAndView datatable() throws Exception {
 		ModelAndView mov = new ModelAndView();
 		
-		mov.addObject("result", svc1.selectCodesAll());
+		mov.addObject("result", svc1.selectAllCodes());
 		mov.setViewName("datatableList");
 		return mov;
 	}
@@ -37,7 +37,7 @@ import com.example.dao.MyTestDao1;
 	public @ResponseBody ModelAndView toast() throws Exception {
 		ModelAndView mov = new ModelAndView();
 		
-		mov.addObject("result", svc1.selectCodesAll());
+		mov.addObject("result", svc1.selectAllCodes());
 		mov.setViewName("toastList");
 		return mov;
 	}
