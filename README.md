@@ -30,7 +30,7 @@ https://www.thymeleaf.org/
 
 # 배포 (MAVEN BUILD)
 pom.xml에 <packaging>war</packaging> 추가
-properties에 <start-class>Test.StartApplication</start-class> 항목을 추가하여 시작 Class지정
-jar - https://naming0617.tistory.com/7
+properties에 <start-class>Test.StartApplication</start-class> 항목을 추가하여 시작 Class지정 <br/>
+jar - https://naming0617.tistory.com/7 <br/>
 war - https://4urdev.tistory.com/84
 
