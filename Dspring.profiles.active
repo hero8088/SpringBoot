@@ -1,0 +1,22 @@
+톰캣에 설정된 정보를 java에서 사용하기   
+   
+   // Use to get a proxy class for HTTP_Port
+    private java.lang.String HTTP_Port_address = "http://hjs.com:50000/XISOAPAdapter/MessageServlet?senderParty=&senderService=MDM&receiverParty=&receiverService=&interface=OS_IntgtMatr&interfaceNamespace=http%3A%2F%2FNongshim.com%2Fmdm%2Fmdm";
+    
+    private java.lang.String HTTP_Port_address_Dev = "http:/hjs.com:50000/XISOAPAdapter/MessageServlet?senderParty=&senderService=MDM&receiverParty=&receiverService=&interface=OS_IntgtMatr&interfaceNamespace=http%3A%2F%2FNongshim.com%2Fmdm%2Fmdm";
+    
+    private java.lang.String HTTP_Port_address_Qa = "http://hjs.com:50000/XISOAPAdapter/MessageServlet?senderParty=&senderService=MDM_Q&receiverParty=&receiverService=&interface=OS_IntgtMatr&interfaceNamespace=http%3A%2F%2FNongshim.com%2Fmdm%2Fmdm";
+    
+    public java.lang.String getHTTP_PortAddress() {
+    	
+    	String activeDb = System.getProperty("spring.profiles.active");
+    	
+    	if(StringUtils.equals(activeDb, "dev")) {
+    		return HTTP_Port_address_Dev;
+    	}else if(StringUtils.equals(activeDb, "qa")) {
+    		return HTTP_Port_address_Qa;
+    	}else {
+    		return HTTP_Port_address;
+    	}
+        
+    }
