@@ -36,3 +36,11 @@ properties에 start-class tag를 추가하여 시작 Class지정
 jar - https://naming0617.tistory.com/7 <br/>
 war - https://4urdev.tistory.com/84
 
+# spring 4.3이 후 추가된 Mapping Annotation
+@GetMapping
+@PostMapping
+@PutMapping
+@PatchMapping
+@DeleteMapping </br>
+https://velog.io/@sloools/Rest-API-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B5%AC%ED%98%84-by-Spring-Boot
+https://m.blog.naver.com/cmh348/221912870674
