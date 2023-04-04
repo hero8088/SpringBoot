@@ -1,3 +1,43 @@
 서비스 메서드에 pointcut을 걸지 못한다.
 정확하지 않지만 프록시 방식이 Controller를 시작 점으로 호출되는 서비스까지 프록시 객체로 만들고
 이 과정에서 aspcec의 내용을 삽입하는 방식이라 중간에 호출되는 sevice나 dao 파일에는 aop를 다이렉트로 걸 수 없는 것 같다.
+
+1. Aspcet Class생성
+
+@Aspect
+@Component
+public class HistoryAspect {
+	
+	@Pointcut("execution(* ns.ird.sy.service.*.*(..))")
+	private void defaultPointCut() {}
+	
+	@Pointcut("@annotation(ns.com.cmm.aspect.HistoryAnnotation)")
+    private void customAnnotation() {}
+	
+    @Before("customAnnotation()")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("Before method execution: " + joinPoint.getSignature().getName());
+    }
+
+    @AfterReturning(
+            pointcut = "customAnnotation()",
+            returning = "result")
+    public void logAfterReturning(JoinPoint joinPoint, Object result) {
+        System.out.println("After method execution: " + joinPoint.getSignature().getName() + ", result: " + result);
+    }
+    
+}
+
+2. Annotation 생성 
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface HistoryAnnotation {
+    String value() default "";
+}
+
+
+3. Controller의 원하는 메서드 선언부에 @HistoryAnnotation 추가
+
+4. dispatchar-servelet.xml파일에 아래코드 추가 	
+<bean id="historyAspect" class="ns.com.cmm.aspect.HistoryAspect"/>
+	<aop:aspectj-autoproxy/>
