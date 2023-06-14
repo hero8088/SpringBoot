@@ -38,6 +38,6 @@ public @interface HistoryAnnotation {
 
 3. Controller의 원하는 메서드 선언부에 @HistoryAnnotation 추가
 
-4. dispatchar-servelet.xml파일에 아래코드 추가 	
+4. dispatchar-servelet.xml파일에 아래코드 추가 	-- 꼭 디스패쳐서블릿에 넣으세요
 <bean id="historyAspect" class="ns.com.cmm.aspect.HistoryAspect"/>
 	<aop:aspectj-autoproxy/>
