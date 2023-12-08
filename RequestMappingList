@@ -1,3 +1,4 @@
+	
 	@Autowired
 	private RequestMappingHandlerMapping requestMappingHandlerMapping;
 
@@ -17,8 +18,8 @@
 			itemMap.put("METHOD", method.getMethod().getName());
 			pages.add(itemMap);
 		}
+		Collections.sort(pages, Comparator.comparing(m -> (String) m.get("PATH")));
+
 		nrReturnVal.addDataSet("output1", pages);
 		return nrReturnVal;
 	}
-	
-	
