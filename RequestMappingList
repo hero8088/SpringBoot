@@ -1,0 +1,24 @@
+	@Autowired
+	private RequestMappingHandlerMapping requestMappingHandlerMapping;
+
+	@RequestMapping(value = "/ird/cm/fn/endPoints.do")
+	public NexacroResult endPointCheck(@ParamDataSet(name = "input1") Map<String, Object> mapParam) throws Exception {
+		NexacroResult nrReturnVal = new NexacroResult();
+		List<Map<String, Object>> pages = new ArrayList<>();
+		
+		Map<RequestMappingInfo, HandlerMethod> map = requestMappingHandlerMapping.getHandlerMethods();
+		
+		for (java.util.Map.Entry<RequestMappingInfo, HandlerMethod> elem : map.entrySet()) {
+			RequestMappingInfo key = elem.getKey();
+			HandlerMethod method = elem.getValue();
+			Map<String, Object> itemMap = new HashMap<>();
+			itemMap.put("PATH", key.getPatternsCondition().getPatterns().toArray()[0]);
+			itemMap.put("CLASS", method.getMethod().getDeclaringClass().getSimpleName());
+			itemMap.put("METHOD", method.getMethod().getName());
+			pages.add(itemMap);
+		}
+		nrReturnVal.addDataSet("output1", pages);
+		return nrReturnVal;
+	}
+	
+	
