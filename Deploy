@@ -1,0 +1,30 @@
+1. 빌드 : gradlew build :  그래들 빌드
+          ./gradlew build
+2. 프로젝트 폴더에 build폴더에 jar파일 확인 :boot jar파일 - 실행가능한 jar파일 
+3. 실행 : java -jar jar파일명
+4. EC2인스턴스 생성 
+    OS선택 : Amazon Linux
+    보안키 받아서 저장하기
+    접속방법 : SSH(관리용), TCP(웹 접속) 두가지 설정 해줘야 함.
+5. EC2에 접속하기
+      ssh -i ~/.ssh/보안키파일.pem ec2-user@publicIp
+6. EC2에 파일 옮기기
+      scp -i ~/.ssh/보안키파일.pem ./전달파일명.jar ec2-user@publicIp:/원하는경로(권한오류유의)
+      rsync도 사용 할 수 있음.
+7. EC2에 java설치
+      yum search java : 설치가능한 java 검색
+      sudo yum install java패키지명
+      amazon-linux-extras : 설치가능한 패키지목록을 보여줌
+      sudo amazon-linux-extras install java-openjdk11
+8. 백그라운드 실행
+    nohup java -jar jar파일명 &
+    nohup : 터미널을 종료해도 프로세스가 살아있게 함
+    & : 백그라운드로 실행
+9. 프로세스 찾기/종료
+    ps aux | grep java
+    kill processId
+    
+** 활용가능한 리눅스 명령어
+        touch : 빈 파일 생성 - touch 파일명
+        curl : 터미널에서 주소 호출해볼때 사용
+        netstat - lntp : 활성화된 포트 검색
